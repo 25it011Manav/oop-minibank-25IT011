@@ -1,0 +1,1 @@
+import java.util.*;public class Driver {public static void main(String[]a){Set<String> names=new LinkedHashSet<>(List.of("alice","bob","alice","charlie","bob","david","emma"));System.out.println("Total Unique Visitors: "+names.size());System.out.println("First Three Distinct: "+names.stream().limit(3).toList());}}

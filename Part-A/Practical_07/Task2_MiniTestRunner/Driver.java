@@ -1,0 +1,2 @@
+import java.lang.annotation.*;import java.lang.reflect.*;
+public class Driver {@Retention(RetentionPolicy.RUNTIME)@Target(ElementType.METHOD)@interface Run{} static class MathTests{@Run void testAdd(){System.out.println("testAdd: PASSED");}@Run void testSubtract(){System.out.println("testSubtract: PASSED");}void helper(){}}public static void main(String[]a)throws Exception{int n=0;Object t=new MathTests();for(Method m:MathTests.class.getDeclaredMethods())if(m.isAnnotationPresent(Run.class)){m.invoke(t);n++;}System.out.println("Total @Run tests executed: "+n);}}

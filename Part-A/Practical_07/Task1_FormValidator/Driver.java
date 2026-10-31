@@ -1,0 +1,2 @@
+import java.lang.annotation.*;import java.lang.reflect.*;
+public class Driver {@Retention(RetentionPolicy.RUNTIME)@Target(ElementType.FIELD)@interface NotBlank{} static class SignupForm{@NotBlank String username="   ";}public static void main(String[]a)throws Exception{SignupForm f=new SignupForm();for(Field x:f.getClass().getDeclaredFields())if(x.isAnnotationPresent(NotBlank.class)&&((String)x.get(f)).isBlank())System.out.println("Validation Error: "+x.getName()+" must not be blank");}}
